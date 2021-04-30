@@ -1,6 +1,7 @@
 import unittest
 
 from selenium import webdriver
+from time import sleep
 from webdriver_manager.chrome import ChromeDriverManager
 from utils.utils import SEARCH_INPUT, DRESS_INPUT, BASE_URL, USER_EMAIL
 from pages.main_page import MainPage
@@ -26,6 +27,8 @@ class MySeleniumTests(unittest.TestCase):
         self.registration_page = RegistrationPage(driver=self.driver)
         self.shopping_cart_page = ShoppingCartPage(driver=self.driver)
 
+        self.driver.get(BASE_URL)
+
     def test_search(self):
         self.main_page.input_data_into_search_field(SEARCH_INPUT)
         self.search_page.check_amount_of_search_results()
@@ -34,7 +37,6 @@ class MySeleniumTests(unittest.TestCase):
         self.main_page.click_on_sign_in_button()
         self.authentication_page.input_email_for_registration(user_email=USER_EMAIL)
         self.registration_page.user_registration()
-        self.authentication_page.confirmation_user_successful_registration()
 
     def test_add_to_cart(self):
         self.main_page.input_data_into_search_field(DRESS_INPUT)

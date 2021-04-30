@@ -1,13 +1,16 @@
+from selenium.webdriver.common.action_chains import ActionChains
+
+
 class BasePage:
 
-    def __init__(self, driver):
+    def __init__(self):
         self.driver = driver
-
-    def go_to_url(self, url):
-        self.driver.get(url)
 
     def get_element(self, by_locator):
         return self.driver.find_element(*by_locator)
+
+    def get_elements(self, by_locator):
+        return self.driver.find_elements(*by_locator)
 
     def click(self, by_locator):
         return self.driver.find_element(*by_locator).click()
@@ -17,3 +20,6 @@ class BasePage:
 
     def hover_over_on_element(self, by_locator):
         ActionChains(self.driver).move_to_element(by_locator).perform()
+
+    def clear(self, by_locator):
+        return self.driver.find_element(*by_locator).clear()
