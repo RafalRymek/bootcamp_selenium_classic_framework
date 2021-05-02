@@ -5,9 +5,6 @@ from pages.base_page import BasePage
 
 class ShoppingCartPage(BasePage):
 
-    def __init__(self, driver):
-        self.driver = driver
-
     __ORDER_SUMMARY_QUANTITY = (By.XPATH, "//input[@name='quantity_5_19_0_0_hidden']")
 
     def check_order_summary_quantity(self):

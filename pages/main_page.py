@@ -4,9 +4,6 @@ from pages.base_page import BasePage
 
 class MainPage(BasePage):
 
-    def __init__(self, driver):
-        self.driver = driver
-
     __SEARCH_FIELD = (By.XPATH, "//input[@class='search_query form-control ac_input']")
     __SUBMIT_BUTTON = (By.XPATH, "//button[@type='submit']")
     __SIGN_IN_BUTTON = (By.XPATH, "//a[@class='login']")

@@ -7,9 +7,6 @@ from pages.base_page import BasePage
 
 class RegistrationPage(BasePage):
 
-    def __init__(self, driver):
-        self.driver = driver
-
     __FIRST_NAME = (By.XPATH, "//input[@id='customer_firstname']")
     __LAST_NAME = (By.XPATH, "//input[@id='customer_lastname']")
     __PASSWORD = (By.XPATH, "//input[@type='password']")

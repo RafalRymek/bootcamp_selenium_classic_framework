@@ -8,9 +8,6 @@ from pages.base_page import BasePage
 
 class SearchPage(BasePage):
 
-    def __init__(self, driver):
-        self.driver = driver
-
     __PRODUCT_CONTAINER = (By.XPATH, "//div[@class='product-container']")
     __AMOUNT_TEXT = (By.CSS_SELECTOR, ".heading-counter")
     __ADD_TO_CART_BUTTON = (By.XPATH, "//a[@class='button ajax_add_to_cart_button btn btn-default']")
