@@ -1,4 +1,3 @@
-from utils.utils import USER_EMAIL
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -7,17 +6,17 @@ from pages.base_page import BasePage
 
 class RegistrationPage(BasePage):
 
-    __FIRST_NAME = (By.XPATH, "//input[@id='customer_firstname']")
-    __LAST_NAME = (By.XPATH, "//input[@id='customer_lastname']")
+    __FIRST_NAME = (By.ID, "customer_firstname")
+    __LAST_NAME = (By.ID, "customer_lastname")
     __PASSWORD = (By.XPATH, "//input[@type='password']")
-    __ADDRESS_INPUT = (By.XPATH, "//input[@id='address1']")
-    __CITY_INPUT = (By.XPATH, "//input[@id='city']")
+    __ADDRESS_INPUT = (By.ID, "address1")
+    __CITY_INPUT = (By.ID, "city")
     __STATE_PICKER = (By.XPATH, "//select[@id='id_state']/option[text()='Alaska']")
-    __ZIP_CODE = (By.XPATH, "//input[@id='postcode']")
+    __ZIP_CODE = (By.ID, "postcode")
     __COUNTRY_PICKER = (By.XPATH, "//select[@id='id_country']/option[text()='United States']")
-    __PHONE_NUMBER = (By.XPATH, "//input[@id='phone_mobile']")
-    __ALIAS_INPUT = (By.XPATH, "//input[@id='alias']")
-    __REGISTER_BUTTON = (By.XPATH, "//button[@id='submitAccount']")
+    __PHONE_NUMBER = (By.ID, "phone_mobile")
+    __ALIAS_INPUT = (By.ID, "alias")
+    __REGISTER_BUTTON = (By.ID, "submitAccount")
 
     def user_registration(self):
         WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(self.__FIRST_NAME))

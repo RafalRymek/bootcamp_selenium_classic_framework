@@ -14,7 +14,6 @@ hamcrest
 3. run `cd bootcamp_selenium_classic_framework` to move to local repository folder
 4. run `pipenv install` to set up all necessary dependencies from Pipfile.lock
 5. run `pipenv shell` to be able to use all pipenv dependencies from terminal
-6. run export PYTHONPATH=`pwd`
 
 ## Execution:
 

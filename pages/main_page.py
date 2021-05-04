@@ -4,9 +4,9 @@ from pages.base_page import BasePage
 
 class MainPage(BasePage):
 
-    __SEARCH_FIELD = (By.XPATH, "//input[@class='search_query form-control ac_input']")
+    __SEARCH_FIELD = (By.ID, "search_query_top")
     __SUBMIT_BUTTON = (By.XPATH, "//button[@type='submit']")
-    __SIGN_IN_BUTTON = (By.XPATH, "//a[@class='login']")
+    __SIGN_IN_BUTTON = (By.XPATH, "//a[contains(text(), 'Sign in')]")
 
     def input_data_into_search_field(self, input_value):
         self.fill(by_locator=self.__SEARCH_FIELD, value=input_value)

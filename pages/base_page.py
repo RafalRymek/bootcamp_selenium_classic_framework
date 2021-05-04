@@ -7,9 +7,7 @@ class BasePage:
 
     class __WebDriver:
         def __init__(self):
-            chrome_options = webdriver.ChromeOptions()
-            # chrome_options.add_argument('--headless')
-            self.driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), options=chrome_options)
+            self.driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
             self.driver.implicitly_wait(3)
             self.driver.set_window_size(1440, 900)
 
