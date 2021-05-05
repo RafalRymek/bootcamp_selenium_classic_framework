@@ -31,6 +31,7 @@ class MySeleniumTests(unittest.TestCase):
         self.main_page.click_on_sign_in_button()
         self.authentication_page.input_email_for_registration(user_email=self.USER_EMAIL)
         self.registration_page.user_registration()
+        self.authentication_page.confirmation_user_successful_registration()
 
     def test_add_to_cart(self):
         self.main_page.input_data_into_search_field(input_value="Dress")
