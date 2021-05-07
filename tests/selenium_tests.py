@@ -1,6 +1,7 @@
 import unittest
 
 import time
+from time import sleep
 from pages.main_page import MainPage
 from pages.search_page import SearchPage
 from pages.authentication_page import AuthenticationPage
@@ -13,15 +14,16 @@ class MySeleniumTests(unittest.TestCase):
     BASE_URL = "http://automationpractice.com/index.php"
     USER_EMAIL = "test" + str(time.time() * 1000) + "@test.com"
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls) -> None:
 
-        self.main_page = MainPage()
-        self.search_page = SearchPage()
-        self.authentication_page = AuthenticationPage()
-        self.registration_page = RegistrationPage()
-        self.shopping_cart_page = ShoppingCartPage()
+        cls.main_page = MainPage()
+        cls.search_page = SearchPage()
+        cls.authentication_page = AuthenticationPage()
+        cls.registration_page = RegistrationPage()
+        cls.shopping_cart_page = ShoppingCartPage()
 
-        self.search_page.go_to_url(url=self.BASE_URL)
+        cls.search_page.go_to_url(url=cls.BASE_URL)
 
     def test_search(self):
         self.main_page.input_data_into_search_field(input_value="Printed dress")
@@ -41,8 +43,9 @@ class MySeleniumTests(unittest.TestCase):
         self.search_page.click_button_order_cart()
         self.shopping_cart_page.check_order_summary_quantity()
 
-    def tearDown(self):
-        self.search_page.quite_driver()
+    @classmethod
+    def tearDownClass(cls) -> None:
+        cls.search_page.quite_driver()
 
 
 if __name__ == '__main__':

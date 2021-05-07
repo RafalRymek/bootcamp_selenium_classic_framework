@@ -1,5 +1,7 @@
 from selenium.webdriver.common.by import By
 from hamcrest import assert_that, starts_with
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from pages.base_page import BasePage
 
 
@@ -10,6 +12,7 @@ class AuthenticationPage(BasePage):
     __ACCOUNT_INFORMATION = (By.XPATH, "//h1[text()='My account']")
 
     def input_email_for_registration(self, user_email):
+        WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(self.__EMAIL_FIELD))
         self.fill(by_locator=self.__EMAIL_FIELD, value=user_email)
         self.click(by_locator=self.__CREATE_SUBMIT_BUTTON)
 
