@@ -1,6 +1,4 @@
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from pages.base_page import BasePage
 
 
@@ -19,7 +17,7 @@ class RegistrationPage(BasePage):
     __REGISTER_BUTTON = (By.ID, "submitAccount")
 
     def user_registration(self):
-        WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(self.__FIRST_NAME))
+        self.is_element_visible(self.__FIRST_NAME)
         self.fill(by_locator=self.__FIRST_NAME, value="Tester")
         self.fill(by_locator=self.__LAST_NAME, value="Testers")
         self.fill(by_locator=self.__PASSWORD, value="123456")

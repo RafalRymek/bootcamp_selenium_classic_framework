@@ -16,7 +16,6 @@ class MySeleniumTests(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls) -> None:
-
         cls.main_page = MainPage()
         cls.search_page = SearchPage()
         cls.authentication_page = AuthenticationPage()
@@ -25,17 +24,17 @@ class MySeleniumTests(unittest.TestCase):
 
         cls.search_page.go_to_url(url=cls.BASE_URL)
 
-    def test_search(self):
+    def test_1_search(self):
         self.main_page.input_data_into_search_field(input_value="Printed dress")
         self.search_page.check_amount_of_search_results()
 
-    def test_registration(self):
+    def test_2_registration(self):
         self.main_page.click_on_sign_in_button()
         self.authentication_page.input_email_for_registration(user_email=self.USER_EMAIL)
         self.registration_page.user_registration()
         self.authentication_page.confirmation_user_successful_registration()
 
-    def test_add_to_cart(self):
+    def test_3_add_to_cart(self):
         self.main_page.input_data_into_search_field(input_value="Dress")
         self.search_page.hover_over_on_first_result()
         self.search_page.add_product_to_basket()
@@ -45,7 +44,7 @@ class MySeleniumTests(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls) -> None:
-        cls.search_page.quite_driver()
+        cls.search_page.quit_driver()
 
 
 if __name__ == '__main__':

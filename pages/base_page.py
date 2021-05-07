@@ -1,5 +1,7 @@
 from selenium.webdriver.common.action_chains import ActionChains
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
 from selenium import webdriver
 
 
@@ -32,11 +34,14 @@ class BasePage:
     def fill(self, by_locator, value):
         return self.driver.find_element(*by_locator).send_keys(value)
 
+    def is_element_visible(self, by_locator):
+        WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(by_locator))
+
     def hover_over_on_element(self, by_locator):
         ActionChains(self.driver).move_to_element(by_locator).perform()
 
     def clear(self, by_locator):
         return self.driver.find_element(*by_locator).clear()
 
-    def quite_driver(self):
+    def quit_driver(self):
         self.driver.quit()

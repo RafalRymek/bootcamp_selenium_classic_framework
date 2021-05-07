@@ -1,7 +1,5 @@
 from selenium.webdriver.common.by import By
 from hamcrest import assert_that, has_string
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from time import sleep
 from pages.base_page import BasePage
 
@@ -25,7 +23,7 @@ class SearchPage(BasePage):
         self.hover_over_on_element(by_locator=first_item)
 
     def add_product_to_basket(self):
-        WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(self.__ADD_TO_CART_BUTTON))
+        self.is_element_visible(by_locator=self.__ADD_TO_CART_BUTTON)
         self.click(by_locator=self.__ADD_TO_CART_BUTTON)
         self.click(by_locator=self.__CLOSE_POP_UP)
 
