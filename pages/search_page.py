@@ -23,7 +23,6 @@ class SearchPage(BasePage):
         self.hover_over_on_element(by_locator=first_item)
 
     def add_product_to_basket(self):
-        self.is_element_visible(by_locator=self.__ADD_TO_CART_BUTTON)
         self.click(by_locator=self.__ADD_TO_CART_BUTTON)
         self.click(by_locator=self.__CLOSE_POP_UP)
 

@@ -17,7 +17,6 @@ class RegistrationPage(BasePage):
     __REGISTER_BUTTON = (By.ID, "submitAccount")
 
     def user_registration(self):
-        self.is_element_visible(self.__FIRST_NAME)
         self.fill(by_locator=self.__FIRST_NAME, value="Tester")
         self.fill(by_locator=self.__LAST_NAME, value="Testers")
         self.fill(by_locator=self.__PASSWORD, value="123456")
