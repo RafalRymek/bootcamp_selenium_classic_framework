@@ -31,9 +31,6 @@ class BasePage:
                                   message=f"{by_locator} element doesn't appear on the page")
         return self.driver.find_element(*by_locator)
 
-    def get_elements(self, by_locator):
-        return self.driver.find_elements(*by_locator)
-
     def click(self, by_locator):
         self.explicity_wait.until(EC.element_to_be_clickable(by_locator),
                                   message=f"{by_locator} element doesn't appear on the page")
@@ -45,9 +42,14 @@ class BasePage:
         return self.driver.find_element(*by_locator).send_keys(value)
 
     def hover_over_on_element(self, by_locator):
-        ActionChains(self.driver).move_to_element(by_locator).perform()
+        self.explicity_wait.until(EC.presence_of_element_located(by_locator),
+                                  message=f"{by_locator} element doesn't appear on the page")
+        element = self.driver.find_element(*by_locator)
+        ActionChains(self.driver).move_to_element(element).perform()
 
     def clear(self, by_locator):
+        self.explicity_wait.until(EC.element_to_be_clickable(by_locator),
+                                  message=f"{by_locator} element doesn't appear on the page")
         return self.driver.find_element(*by_locator).clear()
 
     def quit_driver(self):

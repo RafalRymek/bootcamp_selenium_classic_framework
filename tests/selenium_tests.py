@@ -1,7 +1,6 @@
 import unittest
 
 import time
-from time import sleep
 from pages.main_page import MainPage
 from pages.search_page import SearchPage
 from pages.authentication_page import AuthenticationPage
